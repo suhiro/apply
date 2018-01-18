@@ -11,8 +11,8 @@ class Applicant extends Model
     	return $this->hasOne('App\Position');
     }
 
-    public function education(){
-    	return $this->hasOne('App\Education');
+    public function school(){
+    	return $this->hasOne('App\School');
     }
     public function pastwork(){
     	return $this->hasOne('App\Pastwork');

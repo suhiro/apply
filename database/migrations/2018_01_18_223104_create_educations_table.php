@@ -13,7 +13,7 @@ class CreateEducationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('educations', function (Blueprint $table) {
+        Schema::create('schools', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('applicant_id');
             $table->enum('education',['below','highschool','college','university','graduate'])->default('below');
