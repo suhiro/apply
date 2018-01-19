@@ -19,6 +19,6 @@ Route::get('/jobs',function(){
 	return 'jobs';
 });
 
-Route::get('/apply',function(){
-	return 'apply';
-});
+Route::get('/apply','ApplicantController@index');
+Route::post('/apply','ApplicantController@confirm');
+Route::post('/apply/confirm','ApplicantController@store');

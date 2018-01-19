@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Applicant;
+use App\Pastwork;
+use App\Position;
+use App\School;
 
 class ApplicantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public $applicantData;
+
     public function index()
     {
-        //
+        return view('apply.form');
     }
 
     /**
@@ -21,9 +23,10 @@ class ApplicantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function confirm(Request $data)
     {
-        //
+        $GLOBALS['applicantData'] = $data;
+        return view('apply.confirm')->withData($data);
     }
 
     /**
@@ -32,9 +35,19 @@ class ApplicantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        global $applicantData;
+
+        $applicant = Applicant::create([
+            'cName' => $applicantData->cName,
+            'firstName' => $applicantData->firstName,
+            'lastName' => $applicantData->lastName,
+            'email' => $applicantData->email,
+            'phone' => $applicantData->phone,
+            'dob' => $applicantData->dob,
+            'status' => $applicantData->status
+        ]);
     }
 
     /**
