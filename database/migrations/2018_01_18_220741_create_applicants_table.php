@@ -18,7 +18,7 @@ class CreateApplicantsTable extends Migration
             $table->string('cName',16);
             $table->string('firstName',32);
             $table->string('lastName',32);
-            $table->boolean('gender');
+            $table->tinyinteger('gender');
             $table->boolean('chinese')->default(false);
             $table->boolean('cantonese')->default(false);
             $table->boolean('english')->default(false);
@@ -31,6 +31,7 @@ class CreateApplicantsTable extends Migration
             $table->string('phone',16);
             $table->date('dob');
             $table->enum('status',['visitor','student','worker','pr','citizen']);
+            $tagble->date('expiry')->nullable();
             $table->string('hometown',32)->nullable();
             $table->date('canada_entry')->nullable();
             $table->string('emergency_person',16)->nullable();

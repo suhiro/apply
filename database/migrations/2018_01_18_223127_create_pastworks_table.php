@@ -18,7 +18,7 @@ class CreatePastworksTable extends Migration
             $table->unsignedInteger('applicant_id');
             $table->string('company')->nullable();
             $table->string('phone',16)->nullable();
-            $table->string('position',32);
+            $table->string('position',32)->nullable();
             $table->string('supervisor',32)->nullable();
             $table->boolean('verify')->nullable();
             $table->string('noVerifyReason')->nullable();

@@ -4,7 +4,7 @@
         <img class="d-block mx-auto mb-4" src="http://www.magicnoodle.ca/magicshift/assets/image/system/mn300.png" alt="company logo" >
         <h2>Application form</h2>
         <p class="lead">Glad to know you are applying for Magic Noodle! Looking forward to have you onboard!</p>
-      </div>
+</div>
 
       <div class="row">
       
@@ -42,14 +42,14 @@
 
             <div class="col-md-6 mb-3">
               <label for="phone">Phone</label>
-              <input type="phone" class="form-control" id="phone" name="phone" placeholder="">
+              <input type="phone" class="form-control" id="phone" name="phone" placeholder="" required>
               <div class="invalid-feedback">
                 Please enter a valid phone number.
               </div>
             </div>
              <div class="col-md-6 mb-3">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com">
+              <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required>
               <div class="invalid-feedback">
                 Please enter a valid email address.
               </div>
@@ -97,26 +97,38 @@
 			  <div class="row">
               <div class="col-md-4 mb-3">
                 <label for="dob">Date of Birth</label>
-               <input type="text" class="form-control" id="dob" name="dob" placeholder="" required>
+               <input type="text" class="form-control dp" id="dob" name="dob" placeholder="" required>
                 <div class="invalid-feedback">
                   Please provide your date of birth.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="pob">Place of Birth</label>
-               <input type="text" class="form-control" id="pob" name="pob" placeholder="" required>
+               <input type="text" class="form-control" id="pob" name="pob" placeholder="e.g. xx省 xx市" required>
                 <div class="invalid-feedback">
                   Please provide your hometown information.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="arrival">Date arrived in Canada <span class="text-muted">(if applicable)</label>
-                <input type="text" class="form-control" id="arrival" name="arrival" placeholder="" required>
+                <input type="text" class="form-control dp" id="arrival" name="arrival" placeholder="" >
                
               </div>
             </div>
 
             <div class="row mb-3">
+            	<div class="col-md-6">
+            		<label for="gender">Gender</label>
+                <select class="custom-select d-block w-100" id="gender" name="gender" required>
+                  <option value="">Choose...</option>
+                  <option value='1'>Male</option>
+                  <option value='0'>Female</option>
+                  <option value='2'>Non-binary</option>
+                </select>
+
+
+            	</div>
+
             	<div class="col-md-6">
             	<label>Language <span class="text-muted">(check all languages you use)</span></label>
             	<div class="custom-control custom-checkbox">
@@ -135,8 +147,8 @@
               	<input type="checkbox" class="custom-control-input" id="french" name="french">
               	<label class="custom-control-label" for="french">French</label>
             	</div>
-
         		</div>
+
             </div>
 
             <div class="row">
@@ -156,7 +168,7 @@
             	</div>
             	<div class="col-md-6 mb-3">
                 <label for="expiry">Status expiry date  <span class="text-muted">(if applies to your status)</span></label>
-                <input type="text" class="form-control" id="expiry" name="expiry" placeholder="">
+                <input type="text" class="form-control dp" id="expiry" name="expiry" placeholder="">
               	</div>
             </div>
 
@@ -280,9 +292,40 @@
               </div>
             </div>
 
+             <h4 class="mb-3">Emergency Contact</h4>
+            <div class="row">
+            	
+              <div class="col-md-4 mb-3">
+                <label for="emergency_person">Name</label>
+                <input type="text" class="form-control" id="emgergency_person" name="emgergency_person" placeholder="person">
+                <div class="invalid-feedback">
+                  紧急联络人
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="emgergency_phone">Phone</label>
+                <input type="text" class="form-control" id="emgergency_phone" name="emgergency_phone">
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="emergency_relation">Relationship</label>
+                <input type="text" class="form-control" id="emergency_relation" name="emergency_relation">
+              </div>
+            </div>
+
+
+
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to confirmation</button>
           </form>
         </div>
       </div>
+
+@endsection
+@section('pageJS')
+<script>
+	$('.dp').datepicker({
+		format:'yyyy-mm-dd'
+	});
+</script>
 @endsection
