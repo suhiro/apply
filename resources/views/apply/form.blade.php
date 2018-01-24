@@ -6,13 +6,42 @@
         <p class="lead">Glad to know you are applying for Magic Noodle! Looking forward to have you onboard!</p>
 </div>
 
+
+
+
       <div class="row">
-      
-       
         <div class="col-md-12 order-md-1">
-          <h4 class="mb-3">Personal Information</h4>
-          <form class="needs-validation" method="post" action="/apply" novalidate>
+         
+          <form class="needs-validation" method="post" action="{{url('/apply')}}" novalidate>
           	{{ csrf_field() }}
+            <h4 class="mb-3">Applying for</h4>
+            <div class="row">
+  <div class="col-md-6 mb-3">
+    <label for="location">Location</label>
+<select class="custom-select d-block w-100" id="location" name="location" required>
+                  <option value="">Choose...</option>
+      @foreach($locations as $location)
+        <option value="{{$location->id}}">{{ $location->name }} - {{ $location->address }}, {{ $location->city }}</option>
+      @endforeach              
+</select>
+                <div class="invalid-feedback">
+                  A desired location is required.
+                </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <label for="role">Role</label>
+   <select class="custom-select d-block w-100" id="role" name="role" required>
+                  <option value="">Choose...</option>
+      @foreach($roles as $role)
+        <option value="{{$role->id}}">{{ $role->rank }} - {{ $role->type }}</option>
+      @endforeach              
+</select>
+                <div class="invalid-feedback">
+                  Role is required.
+                </div>
+  </div>
+</div>
+            <h4 class="mb-3">Personal Information</h4>
             <div class="row">
             	<div class="col-md-4 mb-3">
                 <label for="cName">中文姓名</label>

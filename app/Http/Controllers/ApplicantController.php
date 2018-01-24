@@ -7,6 +7,7 @@ use App\Applicant;
 use App\Pastwork;
 use App\Position;
 use App\School;
+use DB;
 
 class ApplicantController extends Controller
 {
@@ -14,7 +15,9 @@ class ApplicantController extends Controller
 
     public function index()
     {
-        return view('apply.form');
+        $locations = DB::connection('magicnoodle')->table('locations')->where('type','store')->orWhere('type','kitchen')->get();
+        $roles = DB::connection('magicnoodle')->table('jobs')->where('trial',true)->get();
+        return view('apply.form',compact('locations','roles'));
     }
 
     /**
@@ -24,8 +27,9 @@ class ApplicantController extends Controller
      */
     public function confirm(Request $data)
     {
-        
-        return view('apply.confirm')->withData($data);
+        $location = DB::connection('magicnoodle')->table('locations')->find($data->location);
+        $job = DB::connection('magicnoodle')->table('jobs')->find($data->role);
+        return view('apply.confirm',compact('data','location','job'));
     }
 
     /**
@@ -39,6 +43,8 @@ class ApplicantController extends Controller
        
 
         $applicant = Applicant::create([
+            'location' => $applicantData->location,
+            'role' => $applicantData->role,
             'cName' => $applicantData->cName,
             'firstName' => $applicantData->firstName,
             'lastName' => $applicantData->lastName,

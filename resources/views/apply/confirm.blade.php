@@ -11,6 +11,9 @@
             <div class="row">
             	<div class="col-md-6 mb-3">
                 	<ul class="list-unstyled">
+
+                    <li>Location Applied: {{$location->name}}, {{ $location->address }}</li>
+                    <li>Role: {{$job->rank }}, {{ $job->type }}</li>
                 		<li>中文名: {{ $data->cName }}</li>
                 		<li>First name: {{ $data->firstName }}</li>
                 		<li>Last name: {{ $data->lastName }}</li>
@@ -81,12 +84,13 @@
  <div class="row">
         <div class="col-md-12 order-md-1">
           
-          <form method="post" action="/apply/confirm">
+          <form method="post" action="{{url('/apply/confirm')}}">
           	<div hidden>
           	{{ csrf_field() }}
             <div class="row">
             	<div class="col-md-4 mb-3">
-              
+              <input type="text" class="form-control" id="location" name="location" value="{{$data->location}}">
+              <input type="text" class="form-control" id="role" name="role" value="{{$data->role}}">
                 <input type="text" class="form-control" id="cName" name="cName" value="{{$data->cName}}">
                
               </div>
