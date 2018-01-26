@@ -85,6 +85,58 @@
         <div class="col-md-12 order-md-1">
           
           <form method="post" action="{{url('/apply/confirm')}}">
+            <div class="row">
+              <div class="col-md-12">
+              <h4 class="mb-3">Availability</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+              <table class="table">
+              <thead>
+                <tr>
+                  <th></th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th>From</th>
+                  <td>{{ Form::select('monFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                   <td>{{ Form::select('tueFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                    <td>{{ Form::select('wedFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                     <td>{{ Form::select('thuFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                      <td>{{ Form::select('friFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                       <td>{{ Form::select('satFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                        <td>{{ Form::select('sunFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                <tr>
+                <tr><th>To</th>
+                   <td>{{ Form::select('monTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                   <td>{{ Form::select('tueTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                    <td>{{ Form::select('wedTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                     <td>{{ Form::select('thuTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                      <td>{{ Form::select('friTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                       <td>{{ Form::select('satTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                        <td>{{ Form::select('sunTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                </tr>
+              </tbody>
+              </table>
+              </div>
+            </div>
+           <div class="row">
+             <div class="col-md-6">
+           
+              {{ Form::label('hours','I can work up to this number of hours per week') }}
+              {{ Form::select('hours',['10'=>'10 Hours','20'=>'20 Hours','44'=>'44 Hours','44+'=>'More than 44 hours a week'],null,['placeholder'=>'Choose','class'=>'form-control']) }}
+              </div>
+              <div class="col-md-6">
+
+              {{ Form::checkbox('holiday') }}
+              {{ Form::label('holiday','I am ok to work on holidays') }}
+              </div>
+             
+            </div>
+
+
+
           	<div hidden>
           	{{ csrf_field() }}
             <div class="row">

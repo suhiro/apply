@@ -7,7 +7,9 @@ use App\Applicant;
 use App\Pastwork;
 use App\Position;
 use App\School;
+use App\Availability;
 use DB;
+use Carbon\Carbon;
 
 class ApplicantController extends Controller
 {
@@ -27,9 +29,11 @@ class ApplicantController extends Controller
      */
     public function confirm(Request $data)
     {
+        $hours = Availability::availabilityHours(30);
+
         $location = DB::connection('magicnoodle')->table('locations')->find($data->location);
         $job = DB::connection('magicnoodle')->table('jobs')->find($data->role);
-        return view('apply.confirm',compact('data','location','job'));
+        return view('apply.confirm',compact('data','location','job','hours'));
     }
 
     /**
@@ -94,6 +98,26 @@ class ApplicantController extends Controller
         if(!$pastwork){
             return 'Error on saving work history';
         }
+        $availability = Availability::create([
+            'applicant_id' => $applicant->id,
+            'monFrom' => $applicantData->monFrom,
+            'tueFrom' => $applicantData->tueFrom,
+            'wedFrom' => $applicantData->wedFrom,
+            'thuFrom' => $applicantData->thuFrom,
+            'friFrom' => $applicantData->friFrom,
+            'satFrom' => $applicantData->satFrom,
+            'sunFrom' => $applicantData->sunFrom, 
+            'monTo' => $applicantData->monTo,
+            'tueTo' => $applicantData->tueTo,
+            'wedTo' => $applicantData->wedTo,
+            'thuTo' => $applicantData->thuTo,
+            'friTo' => $applicantData->friTo,
+            'satTo' => $applicantData->satTo,
+            'sunTo' => $applicantData->sunTo,
+            'hours' => $applicantData->hours,
+            'holiday' => $applicantData->holiday,
+        ]);
+
         return view('apply.success')->withApplicant($applicant)->withCompany('Magic Noodle Inc');
     }
 
