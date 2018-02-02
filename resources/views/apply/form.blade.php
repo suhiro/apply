@@ -45,7 +45,7 @@
             <div class="row">
             	<div class="col-md-4 mb-3">
                 <label for="cName">中文姓名</label>
-                <input type="text" class="form-control" id="cName" name="cName" placeholder="" value="" required>
+                <input type="text" class="form-control" id="cName" name="cName" placeholder="" value="">
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
@@ -107,7 +107,18 @@
                 <label for="province">Province</label>
                 <select class="custom-select d-block w-100" id="province" name="province" required>
                   <option value="">Choose...</option>
-                  <option value='ON'>ON</option>
+                  <option value='ON'>Ontario</option>
+                  <option value='AB'>Alberta</option>
+                  <option value='BC'>British Columbia</option>
+                  <option value='MB'>Manitoba</option>
+                  <option value='NB'>New Brunswick</option>
+                  <option value='NL'>Newfoundland and Labrador</option>
+                  <option value='NS'>Nova Scotia</option>
+                  <option value='NU'>Nunavut</option>
+                  <option value='PE'>Prince Edward Island</option>
+                  <option value='QC'>Quebec</option>
+                  <option value='SK'>Saskatchewan</option>
+                  <option value='YT'>Yukon</option>
                 </select>
                 <div class="invalid-feedback">
                   Please provide a valid province.
@@ -215,7 +226,7 @@
 
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
-                <input id="below" name="education" type="radio" class="custom-control-input" checked required value="below">
+                <input id="below" name="education" type="radio" class="custom-control-input" checked required value="below highschool">
                 <label class="custom-control-label" for="below">Below Highschool</label>
               </div>
               <div class="custom-control custom-radio">
@@ -277,9 +288,8 @@
                 <input type="text" class="form-control" id="orgCity" name="orgCity" placeholder="" value="">
               </div>
             </div>
-
-             <div class="row">
-            	
+            <div class="row">
+              
               <div class="col-md-4 mb-3">
                 <label for="title">Job Title</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="" value="">
@@ -296,6 +306,20 @@
                 <label for="contact">Contact</label>
                 <input type="text" class="form-control" id="orgPhone" name="contact" placeholder="" value="">
               </div>
+            </div>
+             <div class="row">
+            	
+              <div class="col-md-4 mb-3">
+                <label for="exFrom">From</label>
+                <input type="text" class="form-control dp" id="exFrom" name="exFrom" placeholder="" value="">
+             
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="exTo">To</label>
+                <input type="text" class="form-control dp" id="exTo" name="exTo"  placeholder="" value="">
+              </div>
+
+           
             </div>
 
               <div class="row">

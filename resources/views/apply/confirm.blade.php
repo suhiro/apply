@@ -69,6 +69,8 @@
                 		<li>Job Title: {{ $data->title }}</li>
                 		<li>Supervisor/Manager: {{ $data->supervisor }}</li>
                 		<li>Contact: {{ $data->contact }}</li>
+                    <li>From: {{$data->exFrom}}</li>
+                    <li>To: {{$data->exTo}}</li>
                 		<li>Reason for leaving: {{ $data->reason }}</li>
                 		<li>Can we verify: {{ $data->verify }}</li>
                 		<li>Explaination: {{ $data->noVerifyReason }}</li>
@@ -326,6 +328,20 @@
                 <input type="text" class="form-control" value="{{$data->contact}}" name="contact">
               </div>
             </div>
+            <div class="row">
+              
+              <div class="col-md-4 mb-3">
+                <label for="exFrom">From</label>
+                <input type="text" class="form-control dp" id="exFrom" name="exFrom" placeholder="" value="{{$data->exFrom}}">
+             
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="exTo">To</label>
+                <input type="text" class="form-control dp" id="exTo" name="exTo"  placeholder="" value="{{$data->exTo}}">
+              </div>
+
+           
+            </div>
 
               <div class="row">
             	
@@ -350,14 +366,14 @@
             	
               <div class="col-md-4 mb-3">
                 <label for="emergency_person">Name</label>
-                <input type="text" class="form-control" value="{{$data->emgergency_person}}" name="emgergency_person">
+                <input type="text" class="form-control" value="{{$data->emgergency_person}}" name="emergency_person">
                 <div class="invalid-feedback">
                   紧急联络人
                 </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="emgergency_phone">Phone</label>
-                <input type="text" class="form-control" value="{{$data->emgergency_phone}}" name="emgergency_phone">
+                <input type="text" class="form-control" value="{{$data->emgergency_phone}}" name="emergency_phone">
               </div>
 
               <div class="col-md-4 mb-3">

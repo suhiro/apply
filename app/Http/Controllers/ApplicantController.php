@@ -49,7 +49,7 @@ class ApplicantController extends Controller
         $applicant = Applicant::create([
             'location' => $applicantData->location,
             'role' => $applicantData->role,
-            'cName' => $applicantData->cName,
+            'cName' => $applicantData->cName!=''?$applicantData->cName:$applicantData->firstName,
             'firstName' => $applicantData->firstName,
             'lastName' => $applicantData->lastName,
             'gender' => $applicantData->gender,
@@ -93,6 +93,8 @@ class ApplicantController extends Controller
             'noVerifyReason' => $applicantData->noVerifyReason,
             'address' => $applicantData->orgAddress,
             'city' => $applicantData->orgCity,
+            'from' => $applicantData->exFrom,
+            'to' => $applicantData->exTo,
             'quitReason' => $applicantData->reason,
         ]);
         if(!$pastwork){
