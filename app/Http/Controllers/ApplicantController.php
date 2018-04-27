@@ -10,6 +10,7 @@ use App\School;
 use App\Availability;
 use DB;
 use Carbon\Carbon;
+use App\Events\ApplicantApplied;
 
 class ApplicantController extends Controller
 {
@@ -119,7 +120,7 @@ class ApplicantController extends Controller
             'hours' => $applicantData->hours,
             'holiday' => $applicantData->holiday,
         ]);
-
+        event(new ApplicantApplied($applicant));
         return view('apply.success')->withApplicant($applicant)->withCompany('Magic Noodle Inc');
     }
 
