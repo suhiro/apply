@@ -29,7 +29,7 @@ class ApplicantAppliedListener implements ShouldQueue
      */
     public function handle(ApplicantApplied $event)
     {
-        Mail::to('haga.gu@magicnoodle.ca')->cc('suhiro@gmail.com','elaine.mei@magicnoodle.ca')->send(
+        Mail::to('haga.gu@magicnoodle.ca')->cc(['suhiro@gmail.com','elaine.mei@magicnoodle.ca'])->send(
             new ApplicantAppliedNotificationEmail($event->applicant)
         );
         Mail::to($event->applicant)->send(new ApplicantEmail($event->applicant));
