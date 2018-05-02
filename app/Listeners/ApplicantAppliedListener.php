@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApplicantAppliedNotificationEmail;
 
-class ApplicantAppliedListener
+class ApplicantAppliedListener implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -28,8 +28,8 @@ class ApplicantAppliedListener
      */
     public function handle(ApplicantApplied $event)
     {
-        // Mail::to('hr@magicnoodle.ca')->send(
-        //     new ApplicantAppliedNotificationEmail($event->applicant)
-        // );
+        Mail::to('hr@magicnoodle.ca')->send(
+            new ApplicantAppliedNotificationEmail($event->applicant)
+        );
     }
 }
