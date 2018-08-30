@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
-<div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="http://www.magicnoodle.ca/magicshift/assets/image/system/mn300.png" alt="company logo" >
+<div class="text-center mb-5">
+        <img class="d-block mx-auto" src="http://www.magicnoodle.ca/magicshift/assets/image/system/mn300.png" alt="company logo" >
         <h2>Application form</h2>
         <p class="lead">Glad to know you are applying for Magic Noodle! Looking forward to have you onboard!</p>
 </div>

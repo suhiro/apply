@@ -92,37 +92,68 @@
               <h4 class="mb-3">Availability</h4>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
+<div class="row">
+          <div class="col-12">
+            <h2>Availability</h2>
               <table class="table">
+
               <thead>
                 <tr>
-                  <th></th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
+                  <th></th><th>From</th><th>To</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><th>From</th>
+        
+                <tr><th>Monday</th>
                   <td>{{ Form::select('monFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                   <td>{{ Form::select('tueFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                    <td>{{ Form::select('wedFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                     <td>{{ Form::select('thuFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                      <td>{{ Form::select('friFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                       <td>{{ Form::select('satFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                        <td>{{ Form::select('sunFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                <tr>
-                <tr><th>To</th>
-                   <td>{{ Form::select('monTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                  <td>{{ Form::select('monTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td> 
+                 </tr>
+
+                 <tr>
+                  <th>Tuesday</th>
+                  <td>{{ Form::select('tueFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
                    <td>{{ Form::select('tueTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                    <td>{{ Form::select('wedTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                     <td>{{ Form::select('thuTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                      <td>{{ Form::select('friTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                       <td>{{ Form::select('satTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
-                        <td>{{ Form::select('sunTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                 </tr>
+
+                 <tr>
+                  <th>Wednesday</th>
+                  <td>{{ Form::select('wedFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                  <td>{{ Form::select('wedTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                 </tr>
+
+                 <tr>
+                  <th>Thursday</th>
+                  <td>{{ Form::select('thuFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                  <td>{{ Form::select('thuTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
                 </tr>
+
+                <tr>
+                  <th>Friday</th>
+                  <td>{{ Form::select('friFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                  <td>{{ Form::select('friTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                </tr>
+
+                <tr>
+                  <th>Saturday</th>
+                  <td>{{ Form::select('satFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                   <td>{{ Form::select('satTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                </tr>
+
+                <tr>
+                  <th>Sunday</th>
+                  <td>{{ Form::select('sunFrom',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+                  <td>{{ Form::select('sunTo',$hours,null,['placeholder'=>'Choose','class'=>'form-control']) }}</td>
+              </tr>
               </tbody>
               </table>
               </div>
-            </div>
+            </div>            
+
+
+
+
+
+
            <div class="row">
              <div class="col-md-6">
            
